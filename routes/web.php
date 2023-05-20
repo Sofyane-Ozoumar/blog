@@ -23,7 +23,7 @@ Route::get('/single/{id}',[PostsController::class,'index'])->name('single');
 Route::get('search',[PostsController::class,'search'])->name('search');
 
 
-Route::post('/storeComment',[CommentsController::class,'store'])->name('storeComment');
+Route::post('/storeComment/{id}',[CommentsController::class,'store'])->name('storeComment');
 
 Auth::routes();
 

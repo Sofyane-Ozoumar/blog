@@ -22,7 +22,7 @@
                      <p class="card-text mb-auto">{{$post->content}}</p>
                     <ul class="my-3">
                         @forelse ($post->comments as $comment)
-                            <li>{{ $comment->id }}</li>
+                            <li>{{ $comment->content }}</li>
                             @empty
 
                             <p class='text-light'>no comments yet</p>
@@ -30,8 +30,11 @@
                         {{-- had comments hiya likayna fl Model Posts --}}
                     </ul>
                      <div class="form-items my-5">
-                        <form action="{{route('storeComment')}}" method="POST">
-                            @csrf
+                        <form action="{{route('storeComment',$post->id)}}" method="POST">
+                            @csrf 
+                            <input 
+                            type="hidden" name='posts_id' value='{{ $post->id }}'
+                            />
                             <label for="comment">comment</label>               
                             <textarea class="form-control" rows="4"
                              name="content"></textarea>

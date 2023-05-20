@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign("user_id")->references('id')
+            $table->unsignedBigInteger('user_id')->nullable();//dir hadi ila tla3 lik mochkil;
+            $table->foreign("user_id")->references('id')//'doesn’t have a default value'^
             ->on('users')->onDelete('cascade');
             $table->timestamps();
         });
